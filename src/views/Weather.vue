@@ -1,23 +1,19 @@
 <template>
-  <div>
-    <v-btn @click="getWeather">
-      Charger la météo
-    </v-btn>
-
-    <v-data-table
-        :headers="headers"
-        :items="api"
-        :items-per-page="2"
-        class="elevation-1"
-    ></v-data-table>
+  <div class="home">
+    <DataTable v-bind:furniture="getWeather" v-bind:headers="headers" v-bind:items="items"/>
   </div>
 </template>
 
 <script>
-const axios = require('axios').default;
+import DataTable from '@/components/DataTable.vue'
+import {default as axios} from "axios";
 
 export default {
-  name: 'Weather',
+
+  name: 'Home',
+  components: {
+    DataTable
+  },
   data () {
 
     return {
@@ -28,18 +24,19 @@ export default {
         { text: 'Temperature(C°) Min', value: 'tmin' },
         { text: 'Conditions', value: 'condition' },
       ],
-      api: [],
+      items: []
     }
   },
   methods: {
     getWeather(){
-      var self = this;
+      const self = this;
       axios.get('https://www.prevision-meteo.ch/services/json/lat=46.259lng=5.235').then(function(response){
-        self.api = [];
-        for(let i = 0; i<5; i++){
-          self.api.push( response.data['fcst_day_' + i]);
-        }
+        self.items = [];
 
+        for(let i = 0; i<5; i++){
+          self.items.push( response.data['fcst_day_' + i]);
+        }
+        console.log(self.items)
       });
     }
   }
