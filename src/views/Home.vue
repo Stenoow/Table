@@ -1,7 +1,33 @@
 <template>
-  <div id="app">
+  <div>
     <Layout />
-    main
+    <main>
+      <section>
+        <article>
+          <div class="title"><h2>MARKET PLACE</h2></div>
+          <div>
+            <div>FORTNITE-PACK</div>
+            <div>NEW GAMES</div>
+          </div>
+          <div>GIFT CARDS</div>
+        </article>
+        <article>
+          <div class="profile">PROFILE</div>
+          <div class="score">SCORE</div>
+          <div class="medals">MEDALS</div>
+        </article>
+        <article>
+          <h2>BUY TOKENS</h2>
+        </article>
+        <article>
+          <div class="title"><h2>MOST POPULAR GAMES</h2></div>
+          <div class="list-popular-games"></div>
+        </article>
+        <article>
+          <h2>MENU SLICE STORE</h2>
+        </article>
+      </section>
+    </main>
   </div>
 </template>
 
@@ -16,26 +42,3 @@ export default {
 }
 
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
-</style>
