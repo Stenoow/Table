@@ -1,18 +1,21 @@
 <template>
   <div class="home">
+    <Layout />
     <DataTable v-bind:furniture="getWeather" v-bind:headers="headers" v-bind:items="items"/>
   </div>
 </template>
 
 <script>
-import DataTable from '@/components/DataTable.vue'
+import DataTable from '@/components/DataTable.vue';
+import Layout from '@/components/Layout.vue';
 import {default as axios} from "axios";
 
 export default {
 
-  name: 'Home',
+  name: 'Weather',
   components: {
-    DataTable
+    DataTable,
+    Layout
   },
   data () {
 
